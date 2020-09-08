@@ -1,5 +1,6 @@
 package server;
 
+
 public interface AuthService {
     /**
      * @return nickname если пользователь есть
