@@ -123,6 +123,7 @@ public class Controller implements Initializable {
         }
     }
 
+    //Попытайся подключиться
     public void tryToAuth(ActionEvent actionEvent) {
         if(socket == null || socket.isClosed()){
             connect();

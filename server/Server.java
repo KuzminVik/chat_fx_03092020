@@ -8,7 +8,6 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.List;
-import java.util.Scanner;
 import java.util.Vector;
 
 public class Server {
@@ -54,6 +53,18 @@ public class Server {
         for (ClientHandler c : clients) {
             c.sendMsg(message);
         }
+    }
+
+    //ЛИЧНОЕ СООБЩЕНИЕ
+    public void privateMsg (ClientHandler sender, String addressee, String msg){
+        for (ClientHandler c : clients) {
+            if (c.getNickname().equalsIgnoreCase(addressee)){
+                c.sendMsg("В личку от "+sender.getNickname()+": "+msg);
+                sender.sendMsg("В личку для "+addressee+": "+msg);
+                return;
+            }
+        }
+        sender.sendMsg("Пользователь "+addressee+" не в сети, либо его не существует");
     }
 
     public void subscribe(ClientHandler clientHandler){
