@@ -54,7 +54,7 @@ public class ClientHandler {
                         }
                         //ЛИЧНЫЕ СООБЩЕНИЯ
                         if (str.startsWith("/w")){
-                            checkPrivateMessage(str);
+//                            checkPrivateMessage(str);
                         }else {
                             server.broadcastMsg(this, str);
                         }
@@ -79,11 +79,11 @@ public class ClientHandler {
 
     }
 
-    private void checkPrivateMessage(final String msg) {
-            final String[] pM = msg.split("\\s", 3);
-            //от текущего пользователя_this клиенту имя_prvMsg[1] сообщение_prvMsg[2]
-            server.privateMsg(this, pM[1], pM[2]);
-    }
+//    private void checkPrivateMessage(final String msg) {
+//            final String[] pM = msg.split("\\s", 3);
+//            //от текущего пользователя_this клиенту имя_prvMsg[1] сообщение_prvMsg[2]
+//            server.privateMsg(this, pM[1], pM[2]);
+//    }
 
     void sendMsg(String msg) {
         try {
