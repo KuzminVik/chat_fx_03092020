@@ -55,17 +55,17 @@ public class Server {
         }
     }
 
-//    //ЛИЧНОЕ СООБЩЕНИЕ
-//    public void privateMsg (ClientHandler sender, String addressee, String msg){
-//        for (ClientHandler c : clients) {
-//            if (c.getNickname().equalsIgnoreCase(addressee)){
-//                c.sendMsg("В личку от "+sender.getNickname()+": "+msg);
-//                sender.sendMsg("В личку для "+addressee+": "+msg);
-//                return;
-//            }
-//        }
-//        sender.sendMsg("Пользователь "+addressee+" не в сети, либо его не существует");
-//    }
+    //ЛИЧНОЕ СООБЩЕНИЕ
+    public void privateMsg (ClientHandler sender, String addressee, String msg){
+        for (ClientHandler c : clients) {
+            if (c.getNickname().equalsIgnoreCase(addressee)){
+                c.sendMsg("В личку от "+sender.getNickname()+": "+msg);
+                sender.sendMsg("В личку для "+addressee+": "+msg);
+                return;
+            }
+        }
+        sender.sendMsg("Пользователь "+addressee+" не в сети, либо его не существует");
+    }
 
     public void subscribe(ClientHandler clientHandler){
         clients.add(clientHandler);
